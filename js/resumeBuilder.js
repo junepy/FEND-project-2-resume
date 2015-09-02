@@ -10,9 +10,12 @@ var bio = {
 	},
 	"welcomeMessage": "Hello, world!",
 	"skills": [
-		"awesomeness", "delivering things", "cryogenic sleep", "saving the universe"
+		"Linux System Administration (RED HAT CERTIFIED ENGINEER)",
+		"Good Japanese reading and speaking skills (JLPT N2).",
+		"cryogenic sleep",
+		"saving the universe"
 	],
-	"bioPic": "images/fry.jpg"
+	"bioPic": "images/me.jpg"
 }
 
 var education = {
@@ -21,7 +24,7 @@ var education = {
 			"name": "Beijing University of Posts and Telecommunications",
 			"location": "Beijing, China",
 			"degree": "Master of Engineering",
-			"majors": ["CS"],
+			"majors": ["Modern Communication Technology", "CS"],
 			"dates": 2012,
 			"url": "http://english.bupt.edu.cn/"
 		},
@@ -29,7 +32,7 @@ var education = {
 			"name": "Beijing University of Posts and Telecommunications",
 			"location": "Beijing, China",
 			"degree": "B.Eng",
-			"majors": ["CS"],
+			"majors": ["CS", "Operation System", "Data Structures", "Data Base", "Linux"],
 			"dates": 2009,
 			"url": "http://english.bupt.edu.cn/"
 		}
@@ -57,14 +60,14 @@ var work = {
 			"title": "Software QA",
 			"location": "Beijing, China",
 			"dates": "Apr 2012 - Feb 2015",
-      		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+      		"description": "* Run compatibility testing between local Android devices and enterprise mobile product. <br />* Test customization projects. <br />* Verify consumer product issues from customer, and file incidents to develop team. <br />* Test new features of consumer products in localized version and the compatibility between products and the 3rd party software."
 		},
 		{
 			"employer": "Symantec",
 			"title": "Intern",
 			"location": "Beijing, China",
 			"dates": "Apr 2010 - Mar 2012",
-      		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+      		"description": "* Build, test and publish the localized patches for consumer products. <br />* Build and run manual testing of consumer product tools. <br />* Take part in automation scripts creating for patch projects. <br />* Organize the external testing for consumer products new release every year."
 		}
 	]
 }
@@ -120,7 +123,8 @@ bio.display = function() {
 	var formattedMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 	// $("#topContacts").prepend(formattedbioPic);
 	// $("#topContacts").prepend(formattedMsg);
-	$("#topContacts").prepend(formattedMobile + formattedEmail + formattedTwi + formattedGit + formattedLocation);
+	$("#topContacts").prepend(formattedMobile + formattedEmail + formattedLocation);
+	$("#footerContacts").prepend(formattedMobile + formattedEmail + formattedTwi + formattedGit + formattedLocation);
 
 
 	if(bio.skills.length > 0) {
@@ -221,9 +225,8 @@ education.display();
 // 	logClicks(x, y);
 // });
 
-// $(document).click(function(loc) {
-// 	console.log(loc.pageX, loc.pageY);
-// });
+$(document).click(function(loc) {
+	console.log(loc.pageX, loc.pageY);
+});
+
 $("#mapDiv").append(googleMap);
-
-
