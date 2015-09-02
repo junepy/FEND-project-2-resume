@@ -24,9 +24,9 @@ var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="vertical-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -65,7 +65,7 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName(name) || function(){};
+    var iName = inName(bio.name) || function(){};
     $('#name').html(iName);  
   });
 });
@@ -87,9 +87,7 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
-  // var x = loc.pageX;
-  // var y = loc.pageY;
-  // logClicks(x, y);
+  console.log(loc.pageX, loc.pageY);
 });
 
 

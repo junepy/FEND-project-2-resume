@@ -12,8 +12,8 @@ var bio = {
 	"skills": [
 		"Linux System Administration (RED HAT CERTIFIED ENGINEER)",
 		"Good Japanese reading and speaking skills (JLPT N2).",
-		"cryogenic sleep",
-		"saving the universe"
+		"Python",
+		"Web Developing"
 	],
 	"bioPic": "images/me.jpg"
 }
@@ -75,30 +75,38 @@ var work = {
 var projects = {
 	"projects": [
 		{
-			"title": "Sample project 1",
+			"title": "Build a Portfolio Site",
+			"dates": 2015,
+      		"description": "Develop a responsive website that displays images, descriptions and links to each of the portfolio projects.",
+			"images": [
+				"images/portfolio.png",
+			]
+		},
+		{
+			"title": "Sample project",
 			"dates": 2012,
       		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg.",
 			"images": [
-				"images/fry.jpg",
-				"images/fry.jpg"
+				// "images/fry.jpg",
+				// "images/fry.jpg"
 			]
 		},
 		{
-			"title": "Sample project 2",
+			"title": "Sample project",
 			"dates": 2013,
       		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg.",
 			"images": [
-				"images/fry.jpg",
-				"images/fry.jpg"
+				// "images/fry.jpg",
+				// "images/fry.jpg"
 			]
 		},
 		{
-			"title": "Sample project 3",
+			"title": "Sample project",
 			"dates": 2014,
       		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg.",
 			"images": [
-				"images/fry.jpg",
-				"images/fry.jpg"
+				// "images/fry.jpg",
+				// "images/fry.jpg"
 			]
 		}
 	]
@@ -120,15 +128,15 @@ bio.display = function() {
 
 	
 	var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-	var formattedMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-	// $("#topContacts").prepend(formattedbioPic);
-	// $("#topContacts").prepend(formattedMsg);
+	var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#pic-div").append(formattedbioPic);
+	$("#skill-div").append(formattedMsg);
 	$("#topContacts").prepend(formattedMobile + formattedEmail + formattedLocation);
 	$("#footerContacts").prepend(formattedMobile + formattedEmail + formattedTwi + formattedGit + formattedLocation);
 
 
 	if(bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
+		$("#skill-div").append(HTMLskillsStart);
 		for (skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#skills").append(formattedSkill);
@@ -171,7 +179,7 @@ projects.display = function() {
 		if (projects.projects[project].images.length > 0) {
 			for (image in projects.projects[project].images) {
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				// $(".project-entry:last").append(formattedProjectImage);
+				$(".project-entry:last").append(formattedProjectImage);
 			}
 		}
 	}
@@ -219,14 +227,13 @@ education.display = function() {
 
 education.display();
 
-// $(document).click(function(loc) {
-// 	var x = loc.pageX;
-// 	var y = loc.pageY;
-// 	logClicks(x, y);
-// });
+function inName(name) {
+	name = name.trim().split(" ");
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
-$(document).click(function(loc) {
-	console.log(loc.pageX, loc.pageY);
-});
+	return name[0] + " " + name[1];
+}
+$('#main').append(internationalizeButton);
 
-$("#mapDiv").append(googleMap);
+$("#map-div").append(googleMap);
